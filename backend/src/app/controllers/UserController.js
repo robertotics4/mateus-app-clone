@@ -18,7 +18,7 @@ module.exports = {
             let user = await User.findOne({ where: { cpf } });
 
             if (user)
-                return res.status(400).json({ error: 'CPF already user' });
+                return res.status(302).json({ error: 'CPF already user' });
 
             user = await User.create({ username, cpf, password });
             user.password_hash = undefined;

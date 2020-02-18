@@ -2,8 +2,15 @@ const { Model, DataTypes } = require('sequelize');
 
 class City extends Model {
     static init(sequelize) {
-        super.init({ name: DataTypes.STRING, },
+        super.init({
+            name: DataTypes.STRING,
+            state_id: DataTypes.INTEGER,
+        },
             { sequelize });
+    }
+
+    static associate(models) {
+        this.belongsTo(models.State, { foreignKey: 'state_id', as: 'state' });
     }
 }
 
