@@ -22,5 +22,6 @@ Address.init(connection);
 City.associate(connection.models);
 State.associate(connection.models);
 Address.associate(connection.models);
+Store.associate(connection.models);
 
 module.exports = connection;

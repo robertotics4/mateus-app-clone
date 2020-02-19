@@ -31,4 +31,8 @@ routes.post('/stores', StoreController.store);
 routes.put('/stores/:store_id', StoreController.update);
 routes.delete('/stores/:store_id', StoreController.destroy);
 
+routes.get('/addresses', AddressController.index);
+routes.post('/addresses', AddressController.store);
+routes.get('/addresses/:address_id', AddressController.show);
+
 module.exports = routes;

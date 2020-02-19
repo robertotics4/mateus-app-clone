@@ -33,26 +33,35 @@ module.exports = {
     },
 
     async show(req, res) {
-        const { state_id } = req.params;
+        try {
+            const { state_id } = req.params;
 
-        const state = await State.findByPk(state_id);
+            const state = await State.findByPk(state_id);
 
-        if (!state)
-            return res.status(404).json({ msg: 'State not found' });
+            if (!state)
+                return res.status(404).json({ msg: 'State not found' });
 
-        return res.status(200).json(state);
+            return res.status(200).json(state);
+        } catch (err) {
+            return res.status(500).json({ error: err.message });
+        }
+
     },
 
     async destroy(req, res) {
-        const { state_id } = req.params;
+        try {
+            const { state_id } = req.params;
 
-        let state = await State.findByPk(state_id);
+            let state = await State.findByPk(state_id);
 
-        if (!state)
-            return res.status(404).json({ msg: 'State not found' });
+            if (!state)
+                return res.status(404).json({ msg: 'State not found' });
 
-        state = await State.destroy({ where: { id: state_id } });
+            state = await State.destroy({ where: { id: state_id } });
 
-        return res.status(202).json({ msg: `State successfully deleted (${state})` });
+            return res.status(202).json({ msg: `State successfully deleted (${state})` });
+        } catch (err) {
+            return res.status(500).json({ error: err.message });
+        }
     },
 };
