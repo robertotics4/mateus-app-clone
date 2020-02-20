@@ -7,6 +7,7 @@ const CityController = require('./app/controllers/CityController');
 const StateController = require('./app/controllers/StateController');
 const StoreController = require('./app/controllers/StoreController');
 const AddressController = require('./app/controllers/AddressController');
+const DepartmentController = require('./app/controllers/DepartmentController');
 
 
 // Definindo rotas
@@ -34,5 +35,10 @@ routes.delete('/stores/:store_id', StoreController.destroy);
 routes.get('/addresses', AddressController.index);
 routes.post('/addresses', AddressController.store);
 routes.get('/addresses/:address_id', AddressController.show);
+
+routes.get('/departments', DepartmentController.index);
+routes.get('/departments/:department_id', DepartmentController.show);
+routes.post('/departments', DepartmentController.store);
+routes.delete('/departments/:department_id', DepartmentController.destroy);
 
 module.exports = routes;

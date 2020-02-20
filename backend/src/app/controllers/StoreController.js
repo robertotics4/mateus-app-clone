@@ -112,6 +112,8 @@ module.exports = {
                 res.status(404).json({ msg: 'Store not found' });
 
             store = await Store.destroy({ where: { id: store_id } });
+
+            return res.status(202).json({ msg: `Store successfully deleted (${store})` });
         } catch (err) {
             return res.status(500).json({ error: err.message });
         }

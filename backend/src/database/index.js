@@ -7,6 +7,7 @@ const City = require('../app/models/City');
 const State = require('../app/models/State');
 const Store = require('../app/models/Store');
 const Address = require('../app/models/Address');
+const Department = require('../app/models/Department');
 
 // Configurando a conexão com o banco
 const connection = new Sequelize(dbconfig);
@@ -17,6 +18,7 @@ City.init(connection);
 State.init(connection);
 Store.init(connection);
 Address.init(connection);
+Department.init(connection);
 
 // Iniciando associações
 City.associate(connection.models);
