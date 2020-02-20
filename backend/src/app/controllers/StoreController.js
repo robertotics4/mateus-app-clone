@@ -88,15 +88,18 @@ module.exports = {
     async update(req, res) {
         try {
             const { store_id } = req.params;
+            const { name } = req.body;
 
             let store = await Store.findByPk(store_id);
 
             if (!store)
                 res.status(404).json({ msg: 'Store not found' });
 
-            store = await Store.update({ where: { id: store_id } });
+            store = await Store.update({ name }, {
+                where: { id: store_id }
+            });
 
-            return res.status(200).json(store);
+            return res.status(200).json({ msg: 'Store updated successfully' });
         } catch (err) {
             return res.status(500).json({ error: err.message });
         }

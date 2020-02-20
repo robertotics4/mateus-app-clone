@@ -5,6 +5,10 @@ class Department extends Model {
         super.init({ name: DataTypes.STRING, },
             { sequelize });
     }
+
+    static associate(models) {
+        this.hasMany(models.Product, { foreignKey: 'department_id', as: 'products' });
+    }
 }
 
 module.exports = Department;

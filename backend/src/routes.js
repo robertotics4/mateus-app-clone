@@ -8,6 +8,7 @@ const StateController = require('./app/controllers/StateController');
 const StoreController = require('./app/controllers/StoreController');
 const AddressController = require('./app/controllers/AddressController');
 const DepartmentController = require('./app/controllers/DepartmentController');
+const ProductController = require('./app/controllers/ProductController');
 
 
 // Definindo rotas
@@ -40,5 +41,11 @@ routes.get('/departments', DepartmentController.index);
 routes.get('/departments/:department_id', DepartmentController.show);
 routes.post('/departments', DepartmentController.store);
 routes.delete('/departments/:department_id', DepartmentController.destroy);
+
+routes.get('/products', ProductController.index);
+routes.get('/products/:product_id', ProductController.show);
+routes.post('/products', ProductController.store);
+routes.put('/products/:product_id', ProductController.update);
+routes.delete('/products/:product_id', ProductController.destroy);
 
 module.exports = routes;

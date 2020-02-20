@@ -104,20 +104,4 @@ module.exports = {
             return res.status(500).json({ error: err.message });
         }
     },
-
-    async update(req, res) {
-        try {
-
-        } catch (err) {
-            return res.status(500).json({ error: err.message });
-        }
-    },
-
-    async destroy(req, res) {
-        try {
-
-        } catch (err) {
-            return res.status(500).json({ error: err.message });
-        }
-    },
 };
