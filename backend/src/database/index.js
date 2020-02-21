@@ -9,6 +9,7 @@ const Store = require('../app/models/Store');
 const Address = require('../app/models/Address');
 const Department = require('../app/models/Department');
 const Product = require('../app/models/Product');
+const Offer = require('../app/models/Offer');
 
 // Configurando a conexão com o banco
 const connection = new Sequelize(dbconfig);
@@ -21,6 +22,7 @@ Store.init(connection);
 Address.init(connection);
 Department.init(connection);
 Product.init(connection);
+Offer.init(connection);
 
 // Iniciando associações
 City.associate(connection.models);
@@ -29,5 +31,6 @@ Address.associate(connection.models);
 Store.associate(connection.models);
 Product.associate(connection.models);
 Department.associate(connection.models);
+Offer.associate(connection.models);
 
 module.exports = connection;

@@ -9,7 +9,7 @@ const StoreController = require('./app/controllers/StoreController');
 const AddressController = require('./app/controllers/AddressController');
 const DepartmentController = require('./app/controllers/DepartmentController');
 const ProductController = require('./app/controllers/ProductController');
-
+const OfferController = require('./app/controllers/OfferController');
 
 // Definindo rotas
 routes.get('/users', UserController.index);
@@ -47,5 +47,11 @@ routes.get('/products/:product_id', ProductController.show);
 routes.post('/products', ProductController.store);
 routes.put('/products/:product_id', ProductController.update);
 routes.delete('/products/:product_id', ProductController.destroy);
+
+routes.get('/offers', OfferController.index);
+routes.get('/offers/:offer_id', OfferController.show);
+routes.post('/offers', OfferController.store);
+routes.put('/offers/:offer_id', OfferController.update);
+routes.delete('/offers/:offer_id', OfferController.destroy);
 
 module.exports = routes;
