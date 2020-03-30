@@ -12,13 +12,14 @@ const ProductController = require('./app/controllers/ProductController');
 const OfferController = require('./app/controllers/OfferController');
 
 // Importando validators
-const UserValidators = require('./app/validators/UserValidators');
+const UserValidator = require('./app/validators/UserValidator');
+const ProductValidator = require('./app/validators/ProductValidator');
 
 // Definindo rotas
 routes.get('/users', UserController.index);
-routes.get('/users/:user_id', UserValidators.show, UserController.show);
-routes.post('/users', UserValidators.store, UserController.store);
-routes.delete('/users/:user_id', UserController.destroy);
+routes.get('/users/:user_id', UserValidator.show, UserController.show);
+routes.post('/users', UserValidator.store, UserController.store);
+routes.delete('/users/:user_id', UserValidator.destroy, UserController.destroy);
 
 routes.get('/cities', CityController.index);
 routes.get('/cities/:city_id', CityController.show);
@@ -46,10 +47,10 @@ routes.post('/departments', DepartmentController.store);
 routes.delete('/departments/:department_id', DepartmentController.destroy);
 
 routes.get('/products', ProductController.index);
-routes.get('/products/:product_id', ProductController.show);
-routes.post('/products', ProductController.store);
-routes.put('/products/:product_id', ProductController.update);
-routes.delete('/products/:product_id', ProductController.destroy);
+routes.get('/products/:product_id', ProductValidator.show, ProductController.show);
+routes.post('/products', ProductValidator.store, ProductController.store);
+routes.put('/products/:product_id', ProductValidator.update, ProductController.update);
+routes.delete('/products/:product_id', ProductValidator.destroy, ProductController.destroy);
 
 routes.get('/offers', OfferController.index);
 routes.get('/offers/:offer_id', OfferController.show);
