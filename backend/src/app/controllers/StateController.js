@@ -59,7 +59,7 @@ module.exports = {
 
             state = await State.destroy({ where: { id: state_id } });
 
-            return res.status(202).json({ msg: `State successfully deleted (${state})` });
+            return res.status(204).send();
         } catch (err) {
             return res.status(500).json({ error: err.message });
         }

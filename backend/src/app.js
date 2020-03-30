@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./routes');
+const { errors } = require('celebrate');
 
 class AppController {
     constructor() {
@@ -17,6 +18,7 @@ class AppController {
 
     initRoutes() {
         this.express.use('/api', routes);
+        this.express.use(errors());
     }
 }
 

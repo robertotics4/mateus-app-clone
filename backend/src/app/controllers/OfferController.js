@@ -90,7 +90,7 @@ module.exports = {
 
             offer = await Offer.destroy({ where: { id: offer_id } });
 
-            return res.status(202).json({ msg: `Offer successfully deleted (${offer})` });
+            return res.status(204).send();
         } catch (err) {
             return res.status(500).json({ error: err.msg });
         }

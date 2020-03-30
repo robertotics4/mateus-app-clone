@@ -73,7 +73,7 @@ module.exports = {
 
             department = await Department.destroy({ where: { id: department_id } });
 
-            return res.status(202).json({ msg: `Department successfully deleted (${department})` });
+            return res.status(204).send();
         } catch (err) {
             return res.status(500).json({ error: err.message });
         }

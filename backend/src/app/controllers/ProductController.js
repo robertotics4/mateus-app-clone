@@ -103,7 +103,7 @@ module.exports = {
 
             product = await Product.destroy({ where: { id: product_id } });
 
-            return res.status(200).json({ msg: `Product successfully deleted (${product})` });
+            return res.status(204).send();
         } catch (err) {
             return res.status(500).json({ error: err.msg });
         }

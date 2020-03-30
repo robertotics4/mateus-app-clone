@@ -11,10 +11,13 @@ const DepartmentController = require('./app/controllers/DepartmentController');
 const ProductController = require('./app/controllers/ProductController');
 const OfferController = require('./app/controllers/OfferController');
 
+// Importando validators
+const UserValidators = require('./app/validators/UserValidators');
+
 // Definindo rotas
 routes.get('/users', UserController.index);
-routes.get('/users/:user_id', UserController.show);
-routes.post('/users', UserController.store);
+routes.get('/users/:user_id', UserValidators.show, UserController.show);
+routes.post('/users', UserValidators.store, UserController.store);
 routes.delete('/users/:user_id', UserController.destroy);
 
 routes.get('/cities', CityController.index);

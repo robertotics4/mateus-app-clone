@@ -8,35 +8,11 @@ const { Model, DataTypes } = require('sequelize');
 class User extends Model {
     static init(sequelize) {
         super.init({
-            username: {
-                type: DataTypes.STRING,
-                validate: {
-                    notEmpty: { msg: 'Name field cannot be empty' },
-                },
-            },
-            cpf: {
-                type: DataTypes.STRING,
-                validate: {
-                    isCPF: function(value) {
-                        validations.isCPF(value);
-                    },
-                    len: [11, 11],
-                    notEmpty: { msg: 'CPF field cannot be empty' },
-                },
-            },
+            username: DataTypes.STRING,
+            cpf: DataTypes.STRING,
             password: DataTypes.VIRTUAL,
-            password_hash: {
-                type: DataTypes.STRING,
-                validate: {
-                    notEmpty: { msg: 'Password field cannot be empty' },
-                },
-            }
+            password_hash: DataTypes.STRING,
         }, {
-            getterMethods: {
-                formatedCPF() {
-                    return this.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,"\$1.\$2.\$3\-\$4");
-                }
-            },
             hooks: {
                 beforeSave: async user => {
                     if (user.password) {
