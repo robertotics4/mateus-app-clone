@@ -10,9 +10,11 @@ import Register from './pages/Register';
 export default function Routes() {
     return (
         <NavigationContainer>
-            <AppStack.Navigator screenOptions={{ headerShown: false }}>
+            <AppStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Main">
+
                 <AppStack.Screen name="Main" component={Main} />
                 <AppStack.Screen name="Register" component={Register} />
+
             </AppStack.Navigator>
         </NavigationContainer>
     );
