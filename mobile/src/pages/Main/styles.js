@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import { AuthSession } from 'expo';
+
+const customFonts = {
+    'Bariol-Light': require('../../../assets/fonts/Bariol-Light.ttf'),
+    'Bariol-Regular': require('../../../assets/fonts/Bariol-Regular.ttf'),
+    'Bariol-Bold': require('../../../assets/fonts/Bariol-Bold.ttf'),
+};
 
 export default StyleSheet.create({
     container: {
@@ -13,7 +18,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-end',
     },
-    imgLogo: { 
+    imgLogo: {
         width: 263,
         height: 46,
     },
@@ -34,7 +39,7 @@ export default StyleSheet.create({
         borderColor: '#C64B4C',
         borderRadius: 50,
         borderTopRightRadius: 8,
-    }, 
+    },
     buttonEnter: {
         width: '48%',
         alignItems: 'center',
