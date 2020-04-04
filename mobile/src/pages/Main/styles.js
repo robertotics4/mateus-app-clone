@@ -13,6 +13,10 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-end',
     },
+    imgLogo: { 
+        width: 263,
+        height: 46,
+    },
     containerButton: {
         flex: 1,
         flexDirection: 'row',
@@ -42,7 +46,7 @@ export default StyleSheet.create({
     },
     buttonText: {
         color: '#C64B4C',
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: '700',
     },
     buttonTextInverse: {

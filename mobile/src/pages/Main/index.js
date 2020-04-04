@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
@@ -6,10 +7,17 @@ import styles from './styles';
 import logo from '../../assets/logo.png';
 
 export default function MainScreen() {
+    const navigation = useNavigation();
+
+    function navigateToRegister() {
+        navigation.navigate('Register');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.containerImg}>
                 <Image
+                    style={styles.imgLogo}
                     source={logo}
                     alt="mateus-app-clone" />
             </View>
@@ -17,7 +25,7 @@ export default function MainScreen() {
             <View style={styles.containerButton}>
                 <TouchableOpacity
                     style={styles.buttonRegister}
-                    onPress={() => { }}
+                    onPress={() => navigateToRegister()}
                 >
                     <Text style={styles.buttonText}>Cadastro</Text>
                 </TouchableOpacity>
@@ -26,7 +34,7 @@ export default function MainScreen() {
                     style={styles.buttonEnter}
                     onPress={() => { }}
                 >
-                    <Text style={[styles.buttonText, styles.buttonTextInverse]}>Entrar</Text>
+                    <Text style={[styles.buttonText, styles.buttonTextInverse]}>Entre no App</Text>
                 </TouchableOpacity>
 
             </View>
