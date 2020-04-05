@@ -1,12 +1,4 @@
-import React from 'react';
 import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
-
-const customFonts = {
-    'Bariol-Light': require('../../../assets/fonts/Bariol-Light.ttf'),
-    'Bariol-Regular': require('../../../assets/fonts/Bariol-Regular.ttf'),
-    'Bariol-Bold': require('../../../assets/fonts/Bariol-Bold.ttf'),
-};
 
 export default StyleSheet.create({
     container: {

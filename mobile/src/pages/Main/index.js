@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { StatusBar } from 'react-native';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
@@ -16,7 +15,6 @@ export default function MainScreen() {
 
     return (
         <View style={styles.container}>
-            <StatusBar barStyle="dark-content" />
             <View style={styles.containerImg}>
                 <Image
                     style={styles.imgLogo}

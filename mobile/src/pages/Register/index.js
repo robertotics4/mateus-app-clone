@@ -6,7 +6,6 @@ import {
     View,
     Text,
     TouchableOpacity,
-    StatusBar,
     TextInput,
     Image
 } from 'react-native';
@@ -28,7 +27,6 @@ export default function Register() {
     } else {
         return (
             <View style={styles.container}>
-                <StatusBar barStyle="dark-content" />
 
                 <View style={styles.header}>
                     <TouchableOpacity

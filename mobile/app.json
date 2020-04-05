@@ -4,6 +4,9 @@
     "slug": "mateusappclone",
     "privacy": "public",
     "sdkVersion": "36.0.0",
+    "androidStatusBar": {
+      "barStyle": "dark-content"
+    },
     "platforms": [
       "ios",
       "android",
