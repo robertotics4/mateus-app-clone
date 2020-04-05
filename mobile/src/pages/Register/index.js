@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AppLoading } from 'expo';
 import { Feather } from '@expo/vector-icons';
@@ -7,19 +7,31 @@ import {
     Text,
     TouchableOpacity,
     TextInput,
-    Image
+    Image,
 } from 'react-native';
 
 import FontsLoader from '../../utils/FontsLoader';
 import imgSend from '../../assets/send-whatsapp.png';
 import styles from './styles';
 
+import ModalMessage from '../../components/ModalMessage';
+import WideButton from '../../components/WideButton';
+
 export default function Register() {
+    const [modalVisible, setModalVisible] = useState(false);
     const [fontsLoaded] = FontsLoader();
+
     const navigation = useNavigation();
 
     function navigateBack() {
         navigation.goBack();
+    }
+
+    function showModal() {
+        if (modalVisible)
+            return;
+
+        setModalVisible(true);
     }
 
     if (!fontsLoaded) {
@@ -31,7 +43,7 @@ export default function Register() {
                 <View style={styles.header}>
                     <TouchableOpacity
                         style={styles.buttonBack}
-                        onPress={() => navigateBack()}
+                        onPress={() => showModal()}
                     >
                         <Feather name="chevron-left" size={32} color="#C64B4C" />
                     </TouchableOpacity>
@@ -55,12 +67,12 @@ export default function Register() {
 
                     <Text style={styles.warningText}>*Seus dados estão seguros e nos responsabilizamos.</Text>
 
-                    <TouchableOpacity
-                        style={styles.buttonContinue}
-                        onPress={() => { }}
-                    >
-                        <Text style={styles.buttonText}>Continuar</Text>
-                    </TouchableOpacity>
+                    <WideButton
+                        style={{marginHorizontal: 40}}
+                        title="Continuar"
+                        buttonStyle="blue"
+                        onPress={() => {}}
+                    />
 
                 </View>
 
@@ -72,6 +84,17 @@ export default function Register() {
                         <Image source={imgSend} alt="Whatsapp" />
                     </TouchableOpacity>
                 </View>
+
+                <ModalMessage
+                    visible={modalVisible}
+                    title="Tem certeza?"
+                    description="Se você voltar essa etapa, os dados preenchidos serão apagados"
+                    cancelButtonTitle="< Voltar"
+                    confirmButtonTitle="Quero continuar"
+                    cancelButtonAction={() => navigateBack()}
+                    confirmButtonAction={() => {}}
+                />
+
             </View>
         );
     }

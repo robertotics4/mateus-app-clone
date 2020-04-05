@@ -42,9 +42,9 @@ export default StyleSheet.create({
         borderTopLeftRadius: 8,
     },
     buttonText: {
+        fontFamily: 'Bariol-Bold',
         color: '#C64B4C',
-        fontSize: 14,
-        fontWeight: '700',
+        fontSize: 15,
     },
     buttonTextInverse: {
         color: '#fff',

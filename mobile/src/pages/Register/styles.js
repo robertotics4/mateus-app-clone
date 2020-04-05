@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
 
 export default StyleSheet.create({
@@ -53,20 +53,7 @@ export default StyleSheet.create({
         fontFamily: 'Bariol-Regular',
         fontSize: 17,
         color: '#9CA9B2',
-    },
-    buttonContinue: {
-        marginTop: 170,
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 40,
-        borderRadius: 50,
-        marginHorizontal: 40,
-        backgroundColor: '#50A0FF'
-    },
-    buttonText: {
-        fontFamily: 'Bariol-Bold',
-        color: '#fff',
-        fontSize: 14,
+        marginBottom: 170,
     },
     footer: {
         flex: 1,
