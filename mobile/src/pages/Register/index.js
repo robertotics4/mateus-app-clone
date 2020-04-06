@@ -24,14 +24,22 @@ export default function Register() {
     const navigation = useNavigation();
 
     function navigateBack() {
+        closeModal();
         navigation.goBack();
     }
 
-    function showModal() {
+    const showModal = () => {
         if (modalVisible)
             return;
 
         setModalVisible(true);
+    }
+
+    const closeModal = () => {
+        if (!modalVisible)
+            return;
+
+        setModalVisible(false);
     }
 
     if (!fontsLoaded) {
@@ -43,7 +51,7 @@ export default function Register() {
                 <View style={styles.header}>
                     <TouchableOpacity
                         style={styles.buttonBack}
-                        onPress={() => showModal()}
+                        onPress={showModal}
                     >
                         <Feather name="chevron-left" size={32} color="#C64B4C" />
                     </TouchableOpacity>
@@ -68,10 +76,10 @@ export default function Register() {
                     <Text style={styles.warningText}>*Seus dados estão seguros e nos responsabilizamos.</Text>
 
                     <WideButton
-                        style={{marginHorizontal: 40}}
+                        style={{ marginHorizontal: 40 }}
                         title="Continuar"
                         buttonStyle="blue"
-                        onPress={() => {}}
+                        onPress={() => { }}
                     />
 
                 </View>
@@ -92,7 +100,7 @@ export default function Register() {
                     cancelButtonTitle="< Voltar"
                     confirmButtonTitle="Quero continuar"
                     cancelButtonAction={() => navigateBack()}
-                    confirmButtonAction={() => {}}
+                    confirmButtonAction={closeModal}
                 />
 
             </View>

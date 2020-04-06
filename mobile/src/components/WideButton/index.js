@@ -10,7 +10,7 @@ export default function WideButton(props) {
                 style={[styles.buttonArea, styles.inverseArea, props.style]}
                 onPress={props.onPress}
             >
-                <Text style={styles.titleInverse}>Continuar</Text>
+                <Text style={[styles.title, styles.titleInverse]}>{props.title}</Text>
             </TouchableOpacity>
         );
     } else {
@@ -19,7 +19,7 @@ export default function WideButton(props) {
                 style={[styles.buttonArea, props.style]}
                 onPress={props.onPress}
             >
-                <Text style={styles.title}>Continuar</Text>
+                <Text style={styles.title}>{props.title}</Text>
             </TouchableOpacity>
         );
     }
