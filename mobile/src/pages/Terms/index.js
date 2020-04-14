@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AppLoading } from 'expo';
 import { Feather } from '@expo/vector-icons';
-import { TextInputMask } from 'react-native-masked-text';
 import {
     View,
     Text,
@@ -17,10 +16,10 @@ import styles from './styles';
 import ModalMessage from '../../components/ModalMessage';
 import WideButton from '../../components/WideButton';
 
-export default function Register() {
+export default function Terms() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [cpf, setCpf] = useState('');
-    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmation, setConfirmation] = useState('');
     const [fontsLoaded] = FontsLoader();
 
     const navigation = useNavigation();
@@ -59,32 +58,14 @@ export default function Register() {
                     </TouchableOpacity>
 
                     <View style={styles.headerText}>
-                        <Text style={styles.headerTitle}>Antes de começar</Text>
-                        <Text style={styles.headerDescription}>Precisamos de algumas informações suas para concluir o seu cadastro</Text>
+                        <Text style={styles.headerTitle}>Termos de Uso</Text>
+                        <Text style={styles.headerDescription}>Termos e condições de uso do aplicativo.</Text>
                     </View>
                 </View>
 
-                <View style={styles.form}>
-                    <TextInputMask
-                        type={'custom'}
-                        options={{mask: 'A' * 50}}
-                        value={name}
-                        placeholder="Nome"
-                        style={styles.input}
-                        onChangeText={text => setName(text)}
-                    />
-                    <TextInputMask
-                        type={'cpf'}
-                        value={cpf}
-                        placeholder="CPF"
-                        style={styles.input}
-                        onChangeText={text => setCpf(text)}
-                    />
-
-                    <Text style={styles.warningText}>*Seus dados estão seguros e nos responsabilizamos.</Text>
-
+                <View style={styles.instructions}>
                     <WideButton
-                        style={{ marginHorizontal: 40 }}
+                        style={{ marginHorizontal: 40, marginTop: 170, }}
                         title="Continuar"
                         buttonStyle="blue"
                         onPress={() => navigation.navigate('Contact')}

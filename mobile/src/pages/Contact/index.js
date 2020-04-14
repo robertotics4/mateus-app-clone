@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AppLoading } from 'expo';
 import { Feather } from '@expo/vector-icons';
-import { TextInputMask } from 'react-native-masked-text';
 import {
     View,
     Text,
     TouchableOpacity,
+    TextInput,
     Image,
 } from 'react-native';
 
@@ -17,10 +17,8 @@ import styles from './styles';
 import ModalMessage from '../../components/ModalMessage';
 import WideButton from '../../components/WideButton';
 
-export default function Register() {
+export default function Contact() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [cpf, setCpf] = useState('');
-    const [name, setName] = useState('');
     const [fontsLoaded] = FontsLoader();
 
     const navigation = useNavigation();
@@ -59,26 +57,21 @@ export default function Register() {
                     </TouchableOpacity>
 
                     <View style={styles.headerText}>
-                        <Text style={styles.headerTitle}>Antes de começar</Text>
-                        <Text style={styles.headerDescription}>Precisamos de algumas informações suas para concluir o seu cadastro</Text>
+                        <Text style={styles.headerTitle}>Informações de Contato</Text>
+                        <Text style={styles.headerDescription}>Não vamos entrar em contato com você a menos que seja necessário</Text>
                     </View>
                 </View>
 
                 <View style={styles.form}>
-                    <TextInputMask
-                        type={'custom'}
-                        options={{mask: 'A' * 50}}
-                        value={name}
-                        placeholder="Nome"
+                    <TextInput
                         style={styles.input}
-                        onChangeText={text => setName(text)}
+                        placeholder="Telefone"
+                        textContentType="telephoneNumber"
                     />
-                    <TextInputMask
-                        type={'cpf'}
-                        value={cpf}
-                        placeholder="CPF"
+                    <TextInput
                         style={styles.input}
-                        onChangeText={text => setCpf(text)}
+                        placeholder="Email"
+                        textContentType="emailAddress"
                     />
 
                     <Text style={styles.warningText}>*Seus dados estão seguros e nos responsabilizamos.</Text>
@@ -87,7 +80,7 @@ export default function Register() {
                         style={{ marginHorizontal: 40 }}
                         title="Continuar"
                         buttonStyle="blue"
-                        onPress={() => navigation.navigate('Contact')}
+                        onPress={() => navigation.navigate("Password")}
                     />
 
                 </View>

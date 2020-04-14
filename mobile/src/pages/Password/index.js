@@ -17,10 +17,10 @@ import styles from './styles';
 import ModalMessage from '../../components/ModalMessage';
 import WideButton from '../../components/WideButton';
 
-export default function Register() {
+export default function Password() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [cpf, setCpf] = useState('');
-    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmation, setConfirmation] = useState('');
     const [fontsLoaded] = FontsLoader();
 
     const navigation = useNavigation();
@@ -59,35 +59,36 @@ export default function Register() {
                     </TouchableOpacity>
 
                     <View style={styles.headerText}>
-                        <Text style={styles.headerTitle}>Antes de começar</Text>
-                        <Text style={styles.headerDescription}>Precisamos de algumas informações suas para concluir o seu cadastro</Text>
+                        <Text style={styles.headerTitle}>Senha</Text>
+                        <Text style={styles.headerDescription}>Crie uma senha para o MateusApp</Text>
                     </View>
                 </View>
 
                 <View style={styles.form}>
                     <TextInputMask
                         type={'custom'}
-                        options={{mask: 'A' * 50}}
-                        value={name}
-                        placeholder="Nome"
+                        secureTextEntry={true}
+                        options={{ mask: '*'.repeat(20) }} // Até 20 caracteres, com exceção de espaço em branco
+                        value={password}
+                        placeholder="Senha"
                         style={styles.input}
-                        onChangeText={text => setName(text)}
+                        onChangeText={text => setPassword(text)}
                     />
                     <TextInputMask
-                        type={'cpf'}
-                        value={cpf}
-                        placeholder="CPF"
+                        type={'custom'}
+                        secureTextEntry={true}
+                        options={{ mask: '*'.repeat(20) }} // Até 20 caracteres, com exceção de espaço em branco
+                        value={confirmation}
+                        placeholder="Confirme sua senha"
                         style={styles.input}
-                        onChangeText={text => setCpf(text)}
+                        onChangeText={text => setConfirmation(text)}
                     />
 
-                    <Text style={styles.warningText}>*Seus dados estão seguros e nos responsabilizamos.</Text>
-
                     <WideButton
-                        style={{ marginHorizontal: 40 }}
+                        style={{ marginHorizontal: 40, marginTop: 170, }}
                         title="Continuar"
                         buttonStyle="blue"
-                        onPress={() => navigation.navigate('Contact')}
+                        onPress={() => navigation.navigate('Terms')}
                     />
 
                 </View>
