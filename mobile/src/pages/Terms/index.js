@@ -18,8 +18,6 @@ import WideButton from '../../components/WideButton';
 
 export default function Terms() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [password, setPassword] = useState('');
-    const [confirmation, setConfirmation] = useState('');
     const [fontsLoaded] = FontsLoader();
 
     const navigation = useNavigation();
@@ -64,11 +62,24 @@ export default function Terms() {
                 </View>
 
                 <View style={styles.instructions}>
+                    <Text style={styles.instructionsText}>Para completar o cadastro, você tem que concordar com os termos de uso do aplicativo.</Text>
+
                     <WideButton
-                        style={{ marginHorizontal: 40, marginTop: 170, }}
-                        title="Continuar"
+                        style={{ marginHorizontal: 40, marginBottom: 15 }}
+                        title="Baixe o termo completo"
+                        buttonStyle="download"
+                        onPress={() => { }}
+                    />
+
+                    <Text style={styles.instructionsText}>Ao usar o aplicativo, o usuário declara ter lido, compreendido e aceito os termos e condições de uso, bem como as demais políticas de utilização do aplicativo.</Text>
+
+                    <Text style={styles.instructionsText}>O usuário está ciente que esse aplicativo poderá solicitar algumas autorizações de acesso nos seus dados.</Text>
+
+                    <WideButton
+                        style={{ marginHorizontal: 40 }}
+                        title="Eu concordo!"
                         buttonStyle="blue"
-                        onPress={() => navigation.navigate('Contact')}
+                        onPress={() => { }}
                     />
 
                 </View>

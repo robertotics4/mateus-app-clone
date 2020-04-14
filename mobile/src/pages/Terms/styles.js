@@ -40,6 +40,13 @@ export default StyleSheet.create({
         paddingTop: 30,
         paddingHorizontal: 40,
     },
+    instructionsText: {
+        marginBottom: 15,
+        fontFamily: 'Bariol-Regular',
+        fontSize: 15,
+        color: '#151515',
+
+    },
     footer: {
         flex: 1,
         alignItems: 'flex-end',

@@ -25,5 +25,19 @@ export default StyleSheet.create({
     },
     titleInverse: {
         color: '#50A0FF',
+    },
+    buttonContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#ccc'
+    },
+    iconArea: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 40,
+        height: 40,
+        marginLeft: 0,
+        backgroundColor: '#50A0FF',
     }
 });
